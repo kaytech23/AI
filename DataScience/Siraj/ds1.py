@@ -1,6 +1,8 @@
 from sklearn import tree
+from sklearn.neighbors import KNeighborsClassifier
 
-clf = tree.DecisionTreeClassifier()
+clf_tree = tree.DecisionTreeClassifier()
+clf_knn = KNeighborsClassifier()
 
 # CHALLENGE - create 3 more classifiers...
 # 1
@@ -17,10 +19,15 @@ Y = ['male', 'male', 'female', 'female', 'male', 'male', 'female', 'female',
 
 
 # CHALLENGE - ...and train them on our data
-clf = clf.fit(X, Y)
+clf_tree = clf_tree.fit(X, Y)
+clf_knn = clf_knn.fit(X, Y)
 
-prediction = clf.predict([[190, 70, 43]])
+sample = [[190, 70, 43]]
+prediction_tree = clf_tree.predict(sample)
+prediction_knn = clf_knn.predict(sample)
 
-# CHALLENGE compare their reusults and print the best one!
+# CHALLENGE compare their results and print the best one!
 
-print(prediction)
+print(prediction_tree)
+print(prediction_knn)
+
